@@ -15,13 +15,13 @@ public class Main {
             String etiquetaExpresso = etiquetaServiceExpresso.gerarEtiqueta(pedidoExpresso.getEntrega());
             String resumoExpresso = etiquetaServiceExpresso.gerarResumoPedido(pedidoExpresso.getEntrega(), pedidoExpresso.getTipoFrete());
 
-            System.out.println("\n--- Pedido Expresso ---");
+            System.out.println("--- Pedido Expresso ---");
             System.out.println("Etiqueta:\n" + etiquetaExpresso);
             System.out.println("Resumo: " + resumoExpresso);
             System.out.println("Valor do frete calculado no Pedido: R$" + String.format("%.2f", pedidoExpresso.calcularFrete()));
             System.out.println("Frete grátis? " + pedidoExpresso.isFreteGratis());
 
-            System.out.println("\n---");
+            System.out.println("---");
 
             Entrega entrega2 = new Entrega("Avenida Principal, 456", 1.8, "Maria Oliveira");
             Pedido pedidoEconomico = new Pedido(entrega2, "ECO");
@@ -29,19 +29,18 @@ public class Main {
             String etiquetaEconomico = etiquetaServiceEconomico.gerarEtiqueta(pedidoEconomico.getEntrega());
             String resumoEconomico = etiquetaServiceEconomico.gerarResumoPedido(pedidoEconomico.getEntrega(), pedidoEconomico.getTipoFrete());
 
-            System.out.println("\n--- Pedido Econômico ---");
-            System.out.println("Etiqueta:\n" + etiquetaEconomico);
+            System.out.println("--- Pedido Econômico ---");
+            System.out.println("Etiqueta:" + etiquetaEconomico);
             System.out.println("Resumo: " + resumoEconomico);
             System.out.println("Valor do frete calculado no Pedido: R$" + String.format("%.2f", pedidoEconomico.calcularFrete()));
             System.out.println("Frete grátis? " + pedidoEconomico.isFreteGratis());
 
-            System.out.println("\n---");
+            System.out.println("---");
 
-            // (Opcional) Demonstrando o uso do PromocaoService
             PromocaoService promocaoService = new PromocaoService();
             Entrega entregaComPromocao = new Entrega("Rua da Promocao, 789", 12.0, "Carlos Souza");
             Entrega entregaAplicadaPromocao = promocaoService.aplicarFretePromocional(entregaComPromocao);
-            System.out.println("\n--- Promoção ---");
+            System.out.println("--- Promoção ---");
             System.out.println("Entrega original (peso): " + entregaComPromocao.getPeso() + "kg");
             System.out.println("Entrega após promoção (peso): " + entregaAplicadaPromocao.getPeso() + "kg");
 
