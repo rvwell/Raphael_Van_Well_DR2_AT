@@ -10,8 +10,7 @@ public class Main {
             System.out.println("\nPedido Expresso criado para: " + pedidoExpresso.getEntrega().getDestinatario() + ", tipo de frete: " + pedidoExpresso.getTipoFrete());
 
             EtiquetaService etiquetaServiceExpresso = new EtiquetaService(new FreteExpresso());
-
-
+            
             String etiquetaExpresso = etiquetaServiceExpresso.gerarEtiqueta(pedidoExpresso.getEntrega());
             String resumoExpresso = etiquetaServiceExpresso.gerarResumoPedido(pedidoExpresso.getEntrega(), pedidoExpresso.getTipoFrete());
 
@@ -34,15 +33,6 @@ public class Main {
             System.out.println("Resumo: " + resumoEconomico);
             System.out.println("Valor do frete calculado no Pedido: R$" + String.format("%.2f", pedidoEconomico.calcularFrete()));
             System.out.println("Frete grátis? " + pedidoEconomico.isFreteGratis());
-
-            System.out.println("---");
-
-            PromocaoService promocaoService = new PromocaoService();
-            Entrega entregaComPromocao = new Entrega("Rua da Promocao, 789", 12.0, "Carlos Souza");
-            Entrega entregaAplicadaPromocao = promocaoService.aplicarFretePromocional(entregaComPromocao);
-            System.out.println("--- Promoção ---");
-            System.out.println("Entrega original (peso): " + entregaComPromocao.getPeso() + "kg");
-            System.out.println("Entrega após promoção (peso): " + entregaAplicadaPromocao.getPeso() + "kg");
 
         } catch (IllegalArgumentException e) {
             System.err.println("Erro ao criar pedido: " + e.getMessage());
